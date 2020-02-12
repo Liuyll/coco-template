@@ -5,6 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const resolveApp = require('./path').resolveApp
 const tools = require('./tools')
+require('dotenv').config()
 
 module.exports = {
     entry: path.resolve(__dirname,'../../src/index.tsx'),
