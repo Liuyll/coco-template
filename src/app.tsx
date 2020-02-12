@@ -1,7 +1,6 @@
 ///<reference types="webpack-env" />
 
 import * as React from 'react'
-import Test from './test.jsx'
 
 if(module.hot){
     /* 该dependency还需要研究
@@ -18,9 +17,6 @@ const App:React.SFC<any> = function(){
     return (
         <div>
             Welcome to Easy-React
-            <div>
-                <Test></Test>
-            </div>
         </div>
     )
 }

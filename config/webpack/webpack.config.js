@@ -32,6 +32,22 @@ module.exports = {
                     'ts-loader'
                 ]
             },
+            
+
+
+    <% if (preCss == 'LESS') { %>
+        <%- '{ test: /\.less/,use: ["style-loader","css-loader","less-loader"]},' %>
+        <% } else if (preCss == 'SASS'){ %>
+        <%- '{ test: /\.sass/,use: ["style-loader","css-loader","sass-loader"]},' %>
+        <% } else if (preCss == 'NONE') { %>
+        <%- '{ test: /\.css/,use: ["style-loader","css-loader"]},'%>
+        <% } else { %>
+        <%- 
+        '{ test: /\.less/,use: ["css-loader","less-loader"]},{ test: /\.sass/,use: ["style-loader","css-loader","sass-loader"]},'
+        %>
+        <% } %>
+
+
             {
                 test: /\.less/,
                 use: ['css-loader']
