@@ -9,11 +9,26 @@
     "@babel/plugin-proposal-optional-chaining": "^7.8.3",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
-    "@types/webpack-env": "^1.15.0",
-    "@typescript-eslint/eslint-plugin": "^2.12.0",
-    "@typescript-eslint/parser": "^2.12.0",
+    <% if (isJs) { %>
+      <%= "@types/react": "^16.9.16",%>
+    <% } %>
+    
+    <% if (isJs) { %>
+      <%= "@types/react-dom": "^16.9.4",%>
+    <% } %>
+    
+    <% if (isJs) { %>
+      <%= "@types/webpack-env": "^1.15.0",%>
+    <% } %>
+    
+     <% if (isJs) { %>
+      <%= "@typescript-eslint/eslint-plugin": "^2.12.0",%>
+    <% } %>
+    
+    <% if (isJs) { %>
+      <%= "@typescript-eslint/parser": "^2.12.0",%>
+    <% } %>
+
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.0",
