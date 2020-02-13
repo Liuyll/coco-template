@@ -8,6 +8,11 @@ const tools = require('./tools')
 require('dotenv').config()
 
 module.exports = {
+<% if (!isJs) { %>
+    <%- "entry: path.resolve(__dirname,'../../src/index.tsx'),",%>
+<% } else {%>
+    <%- "entry: path.resolve(__dirname,'../../src/index.jsx'),",%>
+<% } %>
     entry: path.resolve(__dirname,'../../src/index.tsx'),
     output: {
         path: path.resolve(__dirname,'../../build'),
@@ -17,23 +22,10 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.(tsx|ts)$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env','@babel/preset-react'],
-                            // 可开启装饰器,也可由ts开启
-                            plugins: []
-                        },
-                        
-                    },
-                    'ts-loader'
-                ]
-            },
-            
-
+        <% if (!isJs) { %>
+        <%- "{test: /\.(tsx|ts)$/,use: [{loader: 'babel-loader',options: {presets: ['@babel/preset-env','@babel/preset-react'],plugins: []},},'ts-loader']}",%>
+        <% } %>
+          
 
     <% if (preCss == 'LESS') { %>
         <%- '{ test: /\.less/,use: ["style-loader","css-loader","less-loader"]},' %>
@@ -116,10 +108,6 @@ module.exports = {
         alias: {
             '@Components': path.resolve(__dirname,'../../src/components')
         },
-        extensions: ['.ts', '.tsx', '.js', 'jsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
-    devServer: {
-        port: '8080',
-        contentBase: path.resolve(__dirname,'../../public')
-    }
 }
