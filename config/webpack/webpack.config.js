@@ -9,11 +9,10 @@ require('dotenv').config()
 
 module.exports = {
 <% if (!isJs) { %>
-    <%- "entry: path.resolve(__dirname,'../../src/index.tsx'),",%>
+    <%- "entry: path.resolve(__dirname,'../../src/index.tsx'),"%>
 <% } else {%>
-    <%- "entry: path.resolve(__dirname,'../../src/index.jsx'),",%>
+    <%- "entry: path.resolve(__dirname,'../../src/index.jsx'),"%>
 <% } %>
-    entry: path.resolve(__dirname,'../../src/index.tsx'),
     output: {
         path: path.resolve(__dirname,'../../build'),
         filename: this.mode === 'production' ? '[name].[contenthash:8].file.js' : '[name].[hash:8].file.js',
