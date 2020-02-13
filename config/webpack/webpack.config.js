@@ -23,7 +23,7 @@ module.exports = {
     module: {
         rules: [
         <% if (!isJs) { %>
-        <%- "{test: /\.(tsx|ts)$/,use: [{loader: 'babel-loader',options: {presets: ['@babel/preset-env','@babel/preset-react'],plugins: []},},'ts-loader']}",%>
+        <%- "{test: /\.(tsx|ts)$/,use: [{loader: 'babel-loader',options: {presets: ['@babel/preset-env','@babel/preset-react'],plugins: []},},'ts-loader']}," %>
         <% } %>
           
 
@@ -60,7 +60,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname,'../../src/index.html'),
+            template: path.resolve(__dirname,'../../public/index.html'),
             inject: true,
             filename: 'index.html'
         }),
